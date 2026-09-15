@@ -1,0 +1,23 @@
+{
+    "keyboard_name": "Dark Project KD87A Pico",
+    "url": "",
+    "maintainer": "handwired",
+    "width": 18.25,
+    "height": 6.5,
+    "development_board": "promicro",
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "matrix_pins": {
+        "cols": ["GP10", "GP11", "GP12", "GP13", "GP14", "GP15", "GP16", "GP17", "GP18", "GP19", "GP20", "GP21", "GP22", "GP26", "GP27", "GP28"],
+        "rows": ["GP4", "GP5", "GP6", "GP7", "GP8", "GP9"]
+    },
+    "diode_direction": "COL2ROW",
+    "features": {
+        "bootmagic": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "rgb_matrix": true,
+        "vial": true
+    }
+}
