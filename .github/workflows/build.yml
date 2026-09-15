@@ -1,0 +1,38 @@
+name: Build VIAL Firmware
+
+on:
+  workflow_dispatch:
+    inputs:
+      keyboard:
+        description: 'Keyboard name (e.g. darkproject/kd87a_pico)'
+        required: true
+        default: 'darkproject/kd87a_pico'
+      keymap:
+        description: 'Keymap name'
+        required: true
+        default: 'vial'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      
+      - name: Install QMK CLI
+        run: |
+          python3 -m pip install qmk
+          qmk setup -y
+          
+      - name: Compile Firmware
+        run: qmk compile -kb ${{ github.event.inputs.keyboard }} -km ${{ github.event.inputs.keymap }}
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: compiled-firmware
+          path: |
+            *.uf2
+            *.hex
+            *.bin
