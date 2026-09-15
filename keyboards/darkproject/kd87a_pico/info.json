@@ -26,54 +26,6 @@
     "layouts": {
         "LAYOUT_all": {
             "layout": [
-                {"matrix": [0, 0], "x": 0, "y": 0},
-                {"matrix": [0, 1], "x": 2, "y": 0},
-                {"matrix": [0, 2], "x": 3, "y": 0},
-                {"matrix": [0, 3], "x": 4, "y": 0},
-                {"matrix": [0, 4], "x": 5, "y": 0},
-                {"matrix": [0, 5], "x": 6.5, "y": 0},
-                {"matrix": [0, 6], "x": 7.5, "y": 0},
-                {"matrix": [0, 7], "x": 8.5, "y": 0},
-                {"matrix": [0, 8], "x": 9.5, "y": 0},
-                {"matrix": [0, Ця помилка `keymap_introspection.c` з'являється тоді, коли QMK при генерації файлів намагається зіставити сітку в `keymap.c` із розмірністю `matrix_size` в `info.json`. У нас виник розсинхрон між тим, скільки елементів очікує QMK для матриці 6×16, і тим, як описаний макрос макету.
-
-Найпростіший спосіб гарантовано пройти інтроспекцію — зробити розкладку у `keymap.c` прямим відображенням матриці **6 рядків на 16 стовпчиків** через стандартний макрос `LAYOUT_all`.
-
----
-
-### **1. Замініть вміст `keyboards/darkproject/kd87a_pico/info.json`**
-
-Замініть весь вміст `info.json` на цей прямий і чистий варіант без складних координат:
-
-```json
-{
-    "keyboard_name": "Dark Project KD87A Pico",
-    "url": "",
-    "maintainer": "handwired",
-    "width": 18.25,
-    "height": 6.5,
-    "development_board": "promicro",
-    "processor": "RP2040",
-    "bootloader": "rp2040",
-    "matrix_size": {
-        "cols": 16,
-        "rows": 6
-    },
-    "matrix_pins": {
-        "cols": ["GP10", "GP11", "GP12", "GP13", "GP14", "GP15", "GP16", "GP17", "GP18", "GP19", "GP20", "GP21", "GP22", "GP26", "GP27", "GP28"],
-        "rows": ["GP4", "GP5", "GP6", "GP7", "GP8", "GP9"]
-    },
-    "diode_direction": "COL2ROW",
-    "features": {
-        "bootmagic": true,
-        "extrakey": true,
-        "mousekey": true,
-        "nkro": true,
-        "vial": true
-    },
-    "layouts": {
-        "LAYOUT_all": {
-            "layout": [
                 {"matrix": [0, 0]}, {"matrix": [0, 1]}, {"matrix": [0, 2]}, {"matrix": [0, 3]}, {"matrix": [0, 4]}, {"matrix": [0, 5]}, {"matrix": [0, 6]}, {"matrix": [0, 7]}, {"matrix": [0, 8]}, {"matrix": [0, 9]}, {"matrix": [0, 10]}, {"matrix": [0, 11]}, {"matrix": [0, 12]}, {"matrix": [0, 13]}, {"matrix": [0, 14]}, {"matrix": [0, 15]},
                 {"matrix": [1, 0]}, {"matrix": [1, 1]}, {"matrix": [1, 2]}, {"matrix": [1, 3]}, {"matrix": [1, 4]}, {"matrix": [1, 5]}, {"matrix": [1, 6]}, {"matrix": [1, 7]}, {"matrix": [1, 8]}, {"matrix": [1, 9]}, {"matrix": [1, 10]}, {"matrix": [1, 11]}, {"matrix": [1, 12]}, {"matrix": [1, 13]}, {"matrix": [1, 14]}, {"matrix": [1, 15]},
                 {"matrix": [2, 0]}, {"matrix": [2, 1]}, {"matrix": [2, 2]}, {"matrix": [2, 3]}, {"matrix": [2, 4]}, {"matrix": [2, 5]}, {"matrix": [2, 6]}, {"matrix": [2, 7]}, {"matrix": [2, 8]}, {"matrix": [2, 9]}, {"matrix": [2, 10]}, {"matrix": [2, 11]}, {"matrix": [2, 12]}, {"matrix": [2, 13]}, {"matrix": [2, 14]}, {"matrix": [2, 15]},
