@@ -1,0 +1,15 @@
+#pragma once
+
+#define VIAL_KEYBOARD_UID {0x44, 0x50, 0x4B, 0x44, 0x38, 0x37, 0x41, 0x01}
+#define VIAL_UNLOCK_COMBO_ROWS {0, 0}
+#define VIAL_UNLOCK_COMBO_COLS {0, 1}
+
+/* Налаштування I2C для SX652 (SDA = GP2, SCL = GP3) */
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP2
+#define I2C1_SCL_PIN GP3
+#define I2C1_CLOCK_SPEED 400000
+
+/* Налаштування RGB Матриці */
+#define RGB_MATRIX_LED_COUNT 87
+#define RGB_DISABLE_WHEN_USB_SUSPENDED true
